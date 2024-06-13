@@ -1,6 +1,6 @@
 package git.devausa.screenmatch.modelos;
 
-public class Titulo {
+public class Titulo implements Comparable<Titulo> {
     // modificadores de acceso: Existen cuatro tipos de modificadores de acceso en Java:
     // public, protected, private y default (también conocido como package-private).
     private String nombre;
@@ -57,6 +57,12 @@ public class Titulo {
 
     public double promedioEvaluaciones(){
         return sumaDeLasEvaluaciones/cantidadDeEvaluaciones;
+    }
+
+    // implemento y reescribo el method comparable
+    @Override
+    public int compareTo(Titulo otroTitulo) {
+        return this.getNombre().compareTo(otroTitulo.getNombre());
     }
 }
 
