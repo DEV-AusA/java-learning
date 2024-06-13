@@ -1,3 +1,5 @@
+package git.devausa.screenmatch.principal;
+
 import git.devausa.screenmatch.calculos.CalculadoraDeTiempo;
 import git.devausa.screenmatch.calculos.FiltroRecomendacion;
 import git.devausa.screenmatch.modelos.Episodio;
@@ -9,9 +11,7 @@ import java.util.ArrayList;
 public class Principal {
     public static void main(String[] args) {
         // instancio nueva clase de git.devausa.screenmatch.modelos.Pelicula
-        Pelicula miPelicula = new Pelicula();
-        miPelicula.setNombre("Avengers");
-        miPelicula.setFechaDeLanzamiento(2019);
+        Pelicula miPelicula = new Pelicula("Avengers", 2019);
         miPelicula.setDuracionEnMinutos(150);
         miPelicula.setIncluidoEnElPlan(true);
 
@@ -22,10 +22,7 @@ public class Principal {
         System.out.println(miPelicula.getCantidadDeEvaluaciones());
         System.out.println(miPelicula.promedioEvaluaciones());
 
-        Serie casaDragon = new Serie();
-
-        casaDragon.setNombre("La casa del dragon");
-        casaDragon.setFechaDeLanzamiento(2022);
+        Serie casaDragon = new Serie("La casa del dragon", 2022);
         casaDragon.setTemporadas(1);
         casaDragon.setMinutosPorEpisodio(50);
         casaDragon.setEpisodiosPorTemporada(10);
@@ -33,9 +30,7 @@ public class Principal {
         casaDragon.muestraFichaTecnica();
         System.out.println(casaDragon.getDuracionEnMinutos());
 
-        Pelicula otraPelicula = new Pelicula();
-        otraPelicula.setNombre("Spiderman");
-        otraPelicula.setFechaDeLanzamiento(1998);
+        Pelicula otraPelicula = new Pelicula("Spiderman", 1998);
         otraPelicula.setDuracionEnMinutos(180);
         otraPelicula.setIncluidoEnElPlan(true);
 
@@ -57,10 +52,8 @@ public class Principal {
         filtroRecomendacion.filtro(episodio);
 
         //M2
-        var peliculaDeCesar = new Pelicula();
-        peliculaDeCesar.setNombre("Interstellar");
+        var peliculaDeCesar = new Pelicula("Interstellar", 2014);
         peliculaDeCesar.setDuracionEnMinutos(125);
-        peliculaDeCesar.setFechaDeLanzamiento(2014);
 
         // creo el array y dentro coloco el tipo de dato de ese array
         ArrayList<Pelicula> listaDePeliculas = new ArrayList<>();
@@ -73,5 +66,7 @@ public class Principal {
         System.out.println("La primera pelicula es " + listaDePeliculas.get(0).getNombre());
 
         System.out.println(listaDePeliculas);
+
+        System.out.println(listaDePeliculas.get(0).toString());
     }
 }

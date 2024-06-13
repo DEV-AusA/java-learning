@@ -1,19 +1,21 @@
 package git.devausa.screenmatch.modelos;
 
 public class Titulo {
-
+    // modificadores de acceso: Existen cuatro tipos de modificadores de acceso en Java:
+    // public, protected, private y default (también conocido como package-private).
     private String nombre;
     private int fechaDeLanzamiento;
     private int duracionEnMinutos;
     private boolean incluidoEnElPlan;
-
-    // modificadores de acceso: Existen cuatro tipos de modificadores de acceso en Java:
-    // public, protected, private y default (también conocido como package-private).
     private double sumaDeLasEvaluaciones;
     private int cantidadDeEvaluaciones;
 
-    // encapsulamiento
+    public Titulo(String nombre, int fechaDeLanzamiento) {
+        this.nombre = nombre;
+        this.fechaDeLanzamiento = fechaDeLanzamiento;
+    }
 
+    // encapsulamiento
     public int getCantidadDeEvaluaciones(){
         return cantidadDeEvaluaciones;
     }
@@ -34,16 +36,8 @@ public class Titulo {
         return incluidoEnElPlan;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public void setDuracionEnMinutos(int duracionEnMinutos) {
         this.duracionEnMinutos = duracionEnMinutos;
-    }
-
-    public void setFechaDeLanzamiento(int fechaDeLanzamiento) {
-        this.fechaDeLanzamiento = fechaDeLanzamiento;
     }
 
     public void setIncluidoEnElPlan(boolean incluidoEnElPlan) {
