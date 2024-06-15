@@ -6,6 +6,7 @@ import git.devausa.screenmatch.modelos.Titulo;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class principalConListas {
     public static void main(String[] args) {
@@ -52,7 +53,13 @@ public class principalConListas {
         // luego implementar su method en esa misma clase
         Collections.sort(lista);
 
-        System.out.println(lista);
+        System.out.println("Lista de titulos ordenados: " + lista);
+
+        // ordenando por año de lanzamiento
+        lista.sort(Comparator.comparing(Titulo::getFechaDeLanzamiento));
+
+        System.out.println("Lista de titulos ordenados por fecha de lanzamiento: " + lista);
+
     }
 
 
