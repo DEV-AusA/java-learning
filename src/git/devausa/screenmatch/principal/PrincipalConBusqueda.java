@@ -3,6 +3,7 @@ package git.devausa.screenmatch.principal;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import git.devausa.screenmatch.api.GetDataApi;
 import git.devausa.screenmatch.excepcion.ErrorConversionDeDuracionException;
 import git.devausa.screenmatch.modelos.Titulo;
 import git.devausa.screenmatch.modelos.TituloOmdb;
@@ -41,31 +42,20 @@ public class PrincipalConBusqueda {
                 break;
             }
 
-            //averiguar el uso de la clase URLEncoder para corregir los espacios en blanco de la URL
-            String direction = "http://www.omdbapi.com/?t=" + busqueda.replace(" ", "+") + "&apikey=364e5920";
+            GetDataApi direction = new GetDataApi();
+            direction.setTituloABuscar(busqueda);
+            String dataApi = direction.getTituloABuscar();
 
             try {
-                //instancias para hacer la peticion
-                HttpClient client = HttpClient.newHttpClient();
-                HttpRequest request = HttpRequest.newBuilder()
-                        .uri(URI.create(direction))
-                        .build();
-                HttpResponse<String> response = client
-                        // agregando la excepciones para que Java maneje los errores
-                        .send(request, HttpResponse.BodyHandlers.ofString());
 
-                String respuestaJson = response.body();
-                System.out.println(response.body());
-
-
-//        Gson gson = new Gson();
+                System.out.println(dataApi);
 
                 // methods fromJson or toJson
-                TituloOmdb miTituloOmdb = gson.fromJson(respuestaJson, TituloOmdb.class);
+                TituloOmdb miTituloOmdb = gson.fromJson(dataApi, TituloOmdb.class);
                 // como muestra null hay que serializar el nombre de las propiedades del Json a los nombre de los parametros de la clase Titulo
                 System.out.println(miTituloOmdb);
 
-                // al enviarle miTituloOmdb solo tira error xq la clase necesita 2 parametros, entonces creo un constructor en Titulo para eso
+                // al enviarle miTituloOmdb solo, tira error xq la clase necesita 2 parametros, entonces creo un constructor en Titulo para eso
                 Titulo miTitulo = new Titulo(miTituloOmdb);
                 System.out.println(miTitulo);
 
