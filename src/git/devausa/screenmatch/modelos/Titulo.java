@@ -12,6 +12,7 @@ public class Titulo implements Comparable<Titulo> {
     private String nombre;
 //    @SerializedName("Year")
     private int fechaDeLanzamiento;
+    private String director;
     private int duracionEnMinutos;
     private boolean incluidoEnElPlan;
     private double sumaDeLasEvaluaciones;
@@ -24,18 +25,18 @@ public class Titulo implements Comparable<Titulo> {
     //creo el constructor que reciba un tituloOmdb
     public Titulo(TituloOmdb miTituloOmdb) {
         this.nombre = miTituloOmdb.title();
-        //convierto el string a int con Integer.valueOf
-        this.fechaDeLanzamiento = Integer.valueOf(miTituloOmdb.year());
 
         //CUSTOM EXCEPTION
         //despues de declararlo hay que crearlo
-        if (miTituloOmdb.runtime().contains("N/A")){
-            throw new ErrorConversionDeDuracionException("No se puede convertir la duracion porque contiene un 'N/A'");
+        if (miTituloOmdb.release_date() == null){
+            throw new ErrorConversionDeDuracionException("No se puede convertir la duracion porque es 'null'");
         }
 
-        //convierto el string a int con Integer.valueOf + obtener solo los 3 primeros numeros del string
-        this.duracionEnMinutos = Integer.valueOf(miTituloOmdb.runtime()
-                .substring(0, 3)
+        this.director = miTituloOmdb.director();
+
+        //convierto el string a int con Integer.valueOf  + obtener solo los 3 primeros numeros del string
+        this.fechaDeLanzamiento = Integer.valueOf(miTituloOmdb.release_date()
+                .substring(0, 4)
                 .replace(" ", ""));
     }
 
@@ -46,6 +47,10 @@ public class Titulo implements Comparable<Titulo> {
 
     public String getNombre() {
         return nombre;
+    }
+
+    public String getDirector() {
+        return director;
     }
 
     public int getFechaDeLanzamiento() {
@@ -70,6 +75,7 @@ public class Titulo implements Comparable<Titulo> {
 
     public void muestraFichaTecnica(){
         System.out.println("Nombre de la pelicula: " + nombre);
+        System.out.println("Director: " + getDirector());
         System.out.println("Fecha de lanzamiento: " + fechaDeLanzamiento);
         System.out.println("Duracion: " + getDuracionEnMinutos() + " minutos");
     }
@@ -93,7 +99,7 @@ public class Titulo implements Comparable<Titulo> {
     public String toString() {
         return "(Nombre=" + nombre +
                 ", fechaDeLanzamiento=" + fechaDeLanzamiento +
-                ", duracion=" + duracionEnMinutos + ")";
+                ", director=" + director + ")";
     }
 }
 

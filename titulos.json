@@ -1,10 +1,56 @@
 [
   {
-    "Nombre": "Encantada",
-    "FechaDeLanzamiento": 2008,
-    "DuracionEnMinutos": 13,
-    "IncluidoEnElPlan": false,
-    "SumaDeLasEvaluaciones": 0.0,
-    "CantidadDeEvaluaciones": 0
+    "nombre": "A New Hope",
+    "fechaDeLanzamiento": 1977,
+    "director": "George Lucas",
+    "duracionEnMinutos": 0,
+    "incluidoEnElPlan": false,
+    "sumaDeLasEvaluaciones": 0.0,
+    "cantidadDeEvaluaciones": 0
+  },
+  {
+    "nombre": "The Empire Strikes Back",
+    "fechaDeLanzamiento": 1980,
+    "director": "Irvin Kershner",
+    "duracionEnMinutos": 0,
+    "incluidoEnElPlan": false,
+    "sumaDeLasEvaluaciones": 0.0,
+    "cantidadDeEvaluaciones": 0
+  },
+  {
+    "nombre": "Return of the Jedi",
+    "fechaDeLanzamiento": 1983,
+    "director": "Richard Marquand",
+    "duracionEnMinutos": 0,
+    "incluidoEnElPlan": false,
+    "sumaDeLasEvaluaciones": 0.0,
+    "cantidadDeEvaluaciones": 0
+  },
+  {
+    "nombre": "The Phantom Menace",
+    "fechaDeLanzamiento": 1999,
+    "director": "George Lucas",
+    "duracionEnMinutos": 0,
+    "incluidoEnElPlan": false,
+    "sumaDeLasEvaluaciones": 0.0,
+    "cantidadDeEvaluaciones": 0
+  },
+  {
+    "nombre": "Attack of the Clones",
+    "fechaDeLanzamiento": 2002,
+    "director": "George Lucas",
+    "duracionEnMinutos": 0,
+    "incluidoEnElPlan": false,
+    "sumaDeLasEvaluaciones": 0.0,
+    "cantidadDeEvaluaciones": 0
+  },
+  {
+    "nombre": "Revenge of the Sith",
+    "fechaDeLanzamiento": 2005,
+    "director": "George Lucas",
+    "duracionEnMinutos": 0,
+    "incluidoEnElPlan": false,
+    "sumaDeLasEvaluaciones": 0.0,
+    "cantidadDeEvaluaciones": 0
   }
 ]

@@ -24,17 +24,18 @@ public class PrincipalConBusqueda {
 
         List<Titulo> titulos = new ArrayList<>();
 
-        //uso el GsonBuilder para avisarle a Java que los datos del Json vienen con la primera letra en mayuscula
+        //uso el GsonBuilder
         //entonces tiene que hacer el parse a minuscula
         Gson gson = new GsonBuilder()
-                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                // con esto le digo a Java que que los datos del Json vienen con la primera letra en mayuscula
+//                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
                 //con esto ESTRUCTURO MEJOR EL JSON CREADO
                 .setPrettyPrinting()
                 .create();
 
         while (true) {
 
-            System.out.println("Ingrese el nombre de la pelicula a buscar:");
+            System.out.println("Ingrese el numero de la pelicula a buscar:");
             var busqueda = nombre.nextLine();
 
             //metodo equalsIgnoreCase ignora y convierte todo a minusculas
@@ -53,11 +54,11 @@ public class PrincipalConBusqueda {
                 // methods fromJson or toJson
                 TituloOmdb miTituloOmdb = gson.fromJson(dataApi, TituloOmdb.class);
                 // como muestra null hay que serializar el nombre de las propiedades del Json a los nombre de los parametros de la clase Titulo
-                System.out.println(miTituloOmdb);
+                System.out.println("Titulo convertido de Json: " + miTituloOmdb);
 
                 // al enviarle miTituloOmdb solo, tira error xq la clase necesita 2 parametros, entonces creo un constructor en Titulo para eso
                 Titulo miTitulo = new Titulo(miTituloOmdb);
-                System.out.println(miTitulo);
+                System.out.println("Titulo " + miTitulo);
 
                 titulos.add(miTitulo);
 

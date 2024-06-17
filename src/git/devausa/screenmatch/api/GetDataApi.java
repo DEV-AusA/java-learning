@@ -17,7 +17,7 @@ public class GetDataApi {
     public String getTituloABuscar() throws IOException, InterruptedException {
 
         //averiguar el uso de la clase URLEncoder para corregir los espacios en blanco de la URL
-        String direction = "http://www.omdbapi.com/?t=" + tituloABuscar + "&apikey=364e5920";
+        String direction = "https://swapi.dev/api/films/" + tituloABuscar;
 
         //instancias para hacer la peticion
         HttpClient client = HttpClient.newHttpClient();
